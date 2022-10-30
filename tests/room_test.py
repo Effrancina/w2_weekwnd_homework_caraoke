@@ -58,11 +58,18 @@ class TestRoom(unittest.TestCase):
         self.assertEqual(1, len(self.room_1.mix))
 
     def test_check_singer_in_to_room(self):
-        self.room_2.check_singer_in_to_room(self.guest_3)
+        singer = self.guest_3
+        self.room_2.check_singer_in_to_room(singer)
         self.assertEqual(1, len(self.room_2.singers))
-        print(len(self.room_2.singers))
+        
     
     def test_check_singer_out_of_room(self):
-        self.room_2.check_singer_out_of_room([0])
+        singer = self.guest_3
+        self.room_2.check_singer_out_of_room(singer)
         self.assertEqual(0, len(self.room_2.singers))
-        print(len(self.room_2.singers))
+        
+    
+    def test_check_how_many_singers_in_the_room(self):
+        self.room_2.check_how_many_singers_in_the_room()
+        self.assertEqual(0, len(self.room_2.singers))
+        

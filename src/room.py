@@ -19,6 +19,7 @@ class Room:
     def check_singer_out_of_room(self, singer):
         if self.singers.__len__() >= 1:
             self.singers.pop(singer)
-            print("Bye bye!")
-        elif self.singers.__len__() == 0:
-            print("Everyone already left, silly!")
+
+    def  check_how_many_singers_in_the_room(self):
+        return self.singers.__len__()
+        
