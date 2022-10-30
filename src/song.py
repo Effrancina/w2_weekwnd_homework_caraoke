@@ -3,4 +3,7 @@ class Song:
         self.song_title = song_title
         self.genre = genre
         self.difficulty = difficulty
+
+    
+        
         

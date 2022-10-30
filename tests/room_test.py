@@ -1,8 +1,8 @@
 import unittest
 
-from src.room import Room
-from src.song import Song
-from src.guest import Guest
+from src.room import *
+from src.song import *
+from src.guest import *
 
 class TestRoom(unittest.TestCase):
     def setUp(self):
@@ -21,28 +21,25 @@ class TestRoom(unittest.TestCase):
         self.guest_4 = Guest("Kaija", 210, "The House of the Rising Sun", 539.10)
         self.guest_5 = Guest("Oliwia", 150, "Bad habits", 545.90)
         self.guest_6 = Guest("Alistair", 180, "Levitating", 563.20)
-
-        
-        self.rock_mix = []
-        self.pop_mix = []
         
 
-        self.room_1 = Room("Rock", self.rock_mix, 5, 100.00)
-        self.room_2 = Room("Pop", self.pop_mix, 8, 150.60)
+        self.room_1 = Room("Rock", 5, 100.00)
+        self.room_2 = Room("Pop", 8, 150.60)
 
 
     def test_room_name(self):
         self.assertEqual("Rock", self.room_1.name)
 
 
-    def test_room_has_a_mix(self):
-        self.assertEqual(0, len(self.room_1.mix))
+    # def test_room_has_a_mix(self):
+    #     self.assertEqual(0, len(self.room_1.mix))
 
-    def test_add_song_to_mix(self):
-        self.rock_mix.add_song_to_mix(self.song_1)
-        # self.rock_mix.append(self.song_1)
-        self.assertEqual(1, len(self.room_1.mix))
-    
+#   # self.rock_mix.append(self.song_1)
+#     def test_add_song_to_mix(self):
+#         song_to_add = Song("Highway to hell", "Rock", 100)
+#         self.rock_mix.add_song_to_mix(song_to_add)
+#         self.assertEqual(1, len(self.room_1.mix))
+
 
     def test_room_capacity(self):
         self.assertEqual(8, self.room_2.capacity)
@@ -51,4 +48,21 @@ class TestRoom(unittest.TestCase):
     def test_room_has_till(self):
         self.assertEqual(100, self.room_1.till)
 
+    # def test_add_song_to_room(self):
+    #     song = Song("Highway to hell", "Rock", 100)
+    #     self.mix.add_song_to_room(song)
+    #     self.assertEqual(1, len(self.room_1.mix))
 
+    def test_add_song_to_room(self):
+        self.room_1.add_song_to_room(self.song_3)
+        self.assertEqual(1, len(self.room_1.mix))
+
+    def test_check_singer_in_to_room(self):
+        self.room_2.check_singer_in_to_room(self.guest_3)
+        self.assertEqual(1, len(self.room_2.singers))
+        print(len(self.room_2.singers))
+    
+    def test_check_singer_out_of_room(self):
+        self.room_2.check_singer_out_of_room([0])
+        self.assertEqual(0, len(self.room_2.singers))
+        print(len(self.room_2.singers))

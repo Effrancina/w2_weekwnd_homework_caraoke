@@ -2,8 +2,12 @@ import unittest
 
 from src.song import Song
 
+
+
 class TestSong(unittest.TestCase):
     def setUp(self):
+        # self.rock_mix = []
+        # self.pop_mix= []
         self.song_1 = Song("Highway to hell", "Rock", 100)
         self.song_2 = Song("The House of the Rising Sun", "Rock", 200)
         self.song_3 = Song("Ain't No Rest for the Wicked", "Rock", 180)
@@ -23,5 +27,4 @@ class TestSong(unittest.TestCase):
     def test_song_has_difficulty(self):
         self.assertEqual(200, self.song_2.difficulty)
 
-
-
+  
