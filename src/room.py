@@ -15,11 +15,19 @@ class Room:
             self.singers.append(singer)
         else:
             print("Apologies, this room is full at the moment.")
+        print(self.singers.__len__())
 
+    # def check_singer_out_of_room(self, singer):
+    #     if self.singers.__len__() >= 1:
+    #         self.singers.pop(singer)
     def check_singer_out_of_room(self, singer):
-        if self.singers.__len__() >= 1:
+        if self.singers.__len__() == 0:
+            print("No-one's here!")
+        else:
             self.singers.pop(singer)
+        print(self.singers.__len__())
 
     def  check_how_many_singers_in_the_room(self):
         return self.singers.__len__()
         
+   

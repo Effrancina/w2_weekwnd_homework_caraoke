@@ -25,20 +25,14 @@ class TestRoom(unittest.TestCase):
 
         self.room_1 = Room("Rock", 5, 100.00)
         self.room_2 = Room("Pop", 8, 150.60)
-
+        
 
     def test_room_name(self):
         self.assertEqual("Rock", self.room_1.name)
 
 
-    # def test_room_has_a_mix(self):
-    #     self.assertEqual(0, len(self.room_1.mix))
-
-#   # self.rock_mix.append(self.song_1)
-#     def test_add_song_to_mix(self):
-#         song_to_add = Song("Highway to hell", "Rock", 100)
-#         self.rock_mix.add_song_to_mix(song_to_add)
-#         self.assertEqual(1, len(self.room_1.mix))
+    def test_room_has_a_mix(self):
+        self.assertEqual(0, len(self.room_1.mix))
 
 
     def test_room_capacity(self):
@@ -49,7 +43,7 @@ class TestRoom(unittest.TestCase):
         self.assertEqual(100, self.room_1.till)
 
     # def test_add_song_to_room(self):
-    #     song = Song("Highway to hell", "Rock", 100)
+    #     song = Song("Highway to hell", "Rock", 100)  
     #     self.mix.add_song_to_room(song)
     #     self.assertEqual(1, len(self.room_1.mix))
 
@@ -70,6 +64,11 @@ class TestRoom(unittest.TestCase):
         
     
     def test_check_how_many_singers_in_the_room(self):
+        self.room_2.check_singer_in_to_room(self.guest_3)
         self.room_2.check_how_many_singers_in_the_room()
-        self.assertEqual(0, len(self.room_2.singers))
+        self.assertEqual(1, len(self.room_2.singers))
         
+    # def test_if_room_empty_give_message(self):
+    #     # singer = self.guest_3
+    #     # self.room_2.check_singer_out_of_room(singer)
+    #     # self.assertEqual(0, len(self.room_2.singers))
